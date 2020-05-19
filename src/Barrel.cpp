@@ -41,3 +41,10 @@ void Barrel::drawObject()
 }
 
 void Barrel::update(float deltaTime) {}
+
+void Barrel::setHeadRadius(float headRadius) { this->headRadius = headRadius; }
+void Barrel::setBellyRadius(float bellyRadius) { this->bellyRadius = bellyRadius; }
+void Barrel::setHeight(float height) { this->height = height; }
+float Barrel::getHeadRadius() { return headRadius; }
+float Barrel::getBellyRadius() { return bellyRadius; }
+float Barrel::getHeight() { return height; }

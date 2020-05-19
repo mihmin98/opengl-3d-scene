@@ -16,6 +16,13 @@ class Barrel : public Object
     // Barrel origin is in the center
     void drawObject();
     void update(float deltaTime);
+
+    void setHeadRadius(float headRadius);
+    void setBellyRadius(float bellyRadius);
+    void setHeight(float height);
+    float getHeadRadius();
+    float getBellyRadius();
+    float getHeight();
 };
 
 #endif
