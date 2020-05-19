@@ -1,10 +1,13 @@
 #include "Parallelepiped.hpp"
 
+Parallelepiped::Parallelepiped(Vector3 dimensions)
+{
+    this->dimensions = dimensions;
+}
+
 Parallelepiped::Parallelepiped(float length, float width, float height)
 {
-    this->length = length;
-    this->width = width;
-    this->height = height;
+    dimensions = Vector3(length, height, width);
 }
 
 void Parallelepiped::drawObject()
@@ -15,39 +18,39 @@ void Parallelepiped::drawObject()
 
     // Bottom Face
     glVertex3f(0, 0, 0);
-    glVertex3f(length, 0, 0);
-    glVertex3f(length, 0, width);
-    glVertex3f(0, 0, width);
+    glVertex3f(dimensions.x, 0, 0);
+    glVertex3f(dimensions.x, 0, dimensions.z);
+    glVertex3f(0, 0, dimensions.z);
 
     // Top Face
-    glVertex3f(0, height, 0);
-    glVertex3f(length, height, 0);
-    glVertex3f(length, height, width);
-    glVertex3f(0, height, width);
+    glVertex3f(0, dimensions.y, 0);
+    glVertex3f(dimensions.x, dimensions.y, 0);
+    glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glVertex3f(0, dimensions.y, dimensions.z);
 
     // Front Face
     glVertex3f(0, 0, 0);
-    glVertex3f(length, 0, 0);
-    glVertex3f(length, height, 0);
-    glVertex3f(0, height, 0);
+    glVertex3f(dimensions.x, 0, 0);
+    glVertex3f(dimensions.x, dimensions.y, 0);
+    glVertex3f(0, dimensions.y, 0);
 
     // Back Face
-    glVertex3f(0, 0, width);
-    glVertex3f(length, 0, width);
-    glVertex3f(length, height, width);
-    glVertex3f(0, height, width);
+    glVertex3f(0, 0, dimensions.z);
+    glVertex3f(dimensions.x, 0, dimensions.z);
+    glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glVertex3f(0, dimensions.y, dimensions.z);
 
     // Left Face
     glVertex3f(0, 0, 0);
-    glVertex3f(0, height, 0);
-    glVertex3f(0, height, width);
-    glVertex3f(0, 0, width);
+    glVertex3f(0, dimensions.y, 0);
+    glVertex3f(0, dimensions.y, dimensions.z);
+    glVertex3f(0, 0, dimensions.z);
 
     // Right Face
-    glVertex3f(length, 0, 0);
-    glVertex3f(length, height, 0);
-    glVertex3f(length, height, width);
-    glVertex3f(length, 0, width);
+    glVertex3f(dimensions.x, 0, 0);
+    glVertex3f(dimensions.x, dimensions.y, 0);
+    glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glVertex3f(dimensions.x, 0, dimensions.z);
 
     glEnd();
 }
