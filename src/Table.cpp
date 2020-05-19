@@ -38,21 +38,26 @@ void Table::drawObject()
 
     // Bottom Right
     glPushMatrix();
-    glTranslatef(top.getDimensions().x - leg.getDimensions().x, 0, 0);
+    glTranslatef(topDimensions.x - legDimensions.x, 0, 0);
     leg.drawObject();
     glPopMatrix();
 
     // Top Right
     glPushMatrix();
-    glTranslatef(top.getDimensions().x - leg.getDimensions().x, 0, top.getDimensions().z - leg.getDimensions().z);
+    glTranslatef(topDimensions.x - legDimensions.x, 0, topDimensions.z - legDimensions.z);
     leg.drawObject();
     glPopMatrix();
 
     // Top Left
     glPushMatrix();
-    glTranslatef(0, 0, top.getDimensions().z - leg.getDimensions().z);
+    glTranslatef(0, 0, topDimensions.z - legDimensions.z);
     leg.drawObject();
     glPopMatrix();
 }
 
 void Table::update(float deltaTime) {}
+
+float Table::getFullHeight()
+{
+    return topDimensions.y + legDimensions.y;
+}
