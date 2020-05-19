@@ -1,0 +1,43 @@
+#include "Barrel.hpp"
+
+Barrel::Barrel(float headRadius, float bellyRadius, float height)
+{
+    this->headRadius = headRadius;
+    this->bellyRadius = bellyRadius;
+    this->height = height;
+
+    quad = gluNewQuadric();
+}
+
+Barrel::~Barrel() { gluDeleteQuadric(quad); }
+
+void Barrel::drawObject()
+{
+    // Top half
+    glPushMatrix();
+    glRotatef(270, 1, 0, 0);
+    gluCylinder(quad, bellyRadius, headRadius, height / 2, slices, stacks);
+    glPopMatrix();
+
+    // Bottom half
+    glPushMatrix();
+    glRotatef(90, 1, 0, 0);
+    gluCylinder(quad, bellyRadius, headRadius, height / 2, slices, stacks);
+    glPopMatrix();
+
+    // Top lid
+    glPushMatrix();
+    glTranslatef(0, height / 2, 0);
+    glRotatef(270, 1, 0, 0);
+    gluDisk(quad, 0, headRadius, slices, 1);
+    glPopMatrix();
+
+    // Bottom lid
+    glPushMatrix();
+    glTranslatef(0, -height / 2, 0);
+    glRotatef(90, 1, 0, 0);
+    gluDisk(quad, 0, headRadius, slices, 1);
+    glPopMatrix();
+}
+
+void Barrel::update(float deltaTime) {}
