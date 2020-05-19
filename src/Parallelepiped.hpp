@@ -15,6 +15,11 @@ class Parallelepiped : public Object
     Parallelepiped(float length = 1, float width = 1, float height = 1);
     void drawObject();
     void update(float deltaTime);
+
+    void setDimensions(Vector3 dimensions);
+    void setDimensions(float length, float height, float width);
+    Vector3 getDimensions();
+    
 };
 
 #endif

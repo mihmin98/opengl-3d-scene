@@ -56,3 +56,18 @@ void Parallelepiped::drawObject()
 }
 
 void Parallelepiped::update(float deltaTime) {}
+
+void Parallelepiped::setDimensions(Vector3 dimensions)
+{
+    this->dimensions = dimensions;
+}
+
+void Parallelepiped::setDimensions(float length, float height, float width)
+{
+    dimensions = Vector3(length, height, width);
+}
+
+Vector3 Parallelepiped::getDimensions()
+{
+    return dimensions;
+}
