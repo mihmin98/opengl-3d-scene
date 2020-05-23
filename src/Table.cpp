@@ -1,29 +1,30 @@
 #include "Table.hpp"
 
-Table::Table(Vector3 topDimensions, Vector3 legDimensions)
+Table::Table(Vector3 topDimensions, Vector3 legDimensions, Color color)
 {
     this->topDimensions = topDimensions;
     this->legDimensions = legDimensions;
+    this->color = color;
     generateParallelepipeds();
 }
 
 Table::Table(float topLength, float topWidth, float topHeight, float legLength, float legWidth,
-             float legHeight)
+             float legHeight, Color color)
 {
     this->topDimensions = Vector3(topLength, topHeight, topWidth);
     this->legDimensions = Vector3(legLength, legHeight, legWidth);
+    this->color = color;
     generateParallelepipeds();
 }
 
 void Table::generateParallelepipeds()
 {
-    top = Parallelepiped(topDimensions);
-    leg = Parallelepiped(legDimensions);
+    top = Parallelepiped(topDimensions, color);
+    leg = Parallelepiped(legDimensions, color);
 }
 
 void Table::drawObject()
 {
-    // TODO: Maybe change the drawObject() to draw() by setting the parallelepiped Object members
     // Draw top
     glPushMatrix();
     glTranslatef(0, legDimensions.y, 0);
@@ -57,7 +58,4 @@ void Table::drawObject()
 
 void Table::update(float deltaTime) {}
 
-float Table::getFullHeight()
-{
-    return topDimensions.y + legDimensions.y;
-}
+float Table::getFullHeight() { return topDimensions.y + legDimensions.y; }

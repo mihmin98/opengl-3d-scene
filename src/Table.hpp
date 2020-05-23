@@ -13,9 +13,9 @@ class Table : public Object
     void generateParallelepipeds();
 
   public:
-    Table(Vector3 topDimensions, Vector3 legDimensions);
+    Table(Vector3 topDimensions, Vector3 legDimensions, Color color = Color(150, 111, 51, 255));
     Table(float topLength, float topWidth, float topHeight, float legLength, float legWidth,
-          float legHeight);
+          float legHeight, Color color = Color(150, 111, 51, 255));
 
     void drawObject();
     void update(float deltaTime);
