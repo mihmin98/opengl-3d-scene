@@ -1,8 +1,9 @@
 #include "Object.hpp"
 
-Object::Object(Transform transform)
+Object::Object(Transform transform, Color color)
 {
     this->transform = transform;
+    this->color = color;
 }
 
 void Object::draw()
@@ -31,6 +32,8 @@ void Object::draw()
         glScalef(this->transform.scale.x,
                  this->transform.scale.y,
                  this->transform.scale.z);
+
+    glColor4ubv(color.getColorArray());
 
     this->drawObject();
     glPopMatrix();

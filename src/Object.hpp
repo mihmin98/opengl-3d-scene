@@ -6,18 +6,21 @@
 #endif
 
 #pragma once
-#include "Transform.hpp"
+#include "Color.hpp"
 #include "GL/freeglut.h"
+#include "Transform.hpp"
 
 class Object
 {
-public:
+  public:
     Transform transform;
+    Color color;
 
-    Object(Transform transform = Transform());
+    Object(Transform transform = Transform(), Color color = Color());
 
     void draw();
-    virtual void drawObject() = 0; // Pure virtual function that says how the object is drawn (ex. shapes, etc)
+    // Pure virtual function that says how the object is drawn (ex. shapes, etc)
+    virtual void drawObject() = 0;
     virtual void update(float deltaTime) = 0;
 };
 
