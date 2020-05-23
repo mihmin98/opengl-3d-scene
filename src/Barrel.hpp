@@ -11,7 +11,7 @@ class Barrel : public Object
     GLUquadric *quad;
 
   public:
-    Barrel(float headRadius, float bellyRadius, float height);
+    Barrel(float headRadius, float bellyRadius, float height, Color color = Color(150, 111, 51, 255));
     ~Barrel();
     // Barrel origin is in the center
     void drawObject();
