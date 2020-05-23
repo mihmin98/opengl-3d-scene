@@ -1,13 +1,15 @@
 #include "Parallelepiped.hpp"
 
-Parallelepiped::Parallelepiped(Vector3 dimensions)
+Parallelepiped::Parallelepiped(Vector3 dimensions, Color color)
 {
     this->dimensions = dimensions;
+    this->color = color;
 }
 
-Parallelepiped::Parallelepiped(float length, float width, float height)
+Parallelepiped::Parallelepiped(float length, float width, float height, Color color)
 {
     dimensions = Vector3(length, height, width);
+    this->color = color;
 }
 
 void Parallelepiped::drawObject()
@@ -57,17 +59,11 @@ void Parallelepiped::drawObject()
 
 void Parallelepiped::update(float deltaTime) {}
 
-void Parallelepiped::setDimensions(Vector3 dimensions)
-{
-    this->dimensions = dimensions;
-}
+void Parallelepiped::setDimensions(Vector3 dimensions) { this->dimensions = dimensions; }
 
 void Parallelepiped::setDimensions(float length, float height, float width)
 {
     dimensions = Vector3(length, height, width);
 }
 
-Vector3 Parallelepiped::getDimensions()
-{
-    return dimensions;
-}
+Vector3 Parallelepiped::getDimensions() { return dimensions; }
