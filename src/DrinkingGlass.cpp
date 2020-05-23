@@ -1,10 +1,11 @@
 #include "DrinkingGlass.hpp"
 
-DrinkingGlass::DrinkingGlass(float topRadius, float baseRadius, float height)
+DrinkingGlass::DrinkingGlass(float topRadius, float baseRadius, float height, Color color)
 {
     this->topRadius = topRadius;
     this->baseRadius = baseRadius;
     this->height = height;
+    this->color = color;
     quad = gluNewQuadric();
 }
 
@@ -15,7 +16,7 @@ void DrinkingGlass::drawObject()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glColor4ubv(color);
+
     // Draw the cylinder
     glPushMatrix();
     glRotatef(270, 1, 0, 0);
