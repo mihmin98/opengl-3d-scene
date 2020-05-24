@@ -1,6 +1,6 @@
 #include "Material.hpp"
 
-Material::Material(Color specular, Color emission)
+Material::Material(Color specular, Color emission, float shininess)
 {
     this->specular[0] = specular.getRed() / 255.0;
     this->specular[1] = specular.getGreen() / 255.0;
@@ -11,9 +11,11 @@ Material::Material(Color specular, Color emission)
     this->emission[1] = emission.getGreen() / 255.0;
     this->emission[2] = emission.getBlue() / 255.0;
     this->emission[3] = emission.getAlpha() / 255.0;
+
+    this->shininess = shininess;
 }
 
-Material::Material(float *specular, float *emission)
+Material::Material(float *specular, float *emission, float shininess)
 {
     this->specular[0] = specular[0];
     this->specular[1] = specular[1];
@@ -24,12 +26,15 @@ Material::Material(float *specular, float *emission)
     this->emission[1] = emission[1];
     this->emission[2] = emission[2];
     this->emission[3] = emission[3];
+
+    this->shininess = shininess;
 }
 
 void Material::applyMaterial()
 {
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular);
     glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, emission);
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
 }
 
 void Material::setSpecular(float *specular)
@@ -64,6 +69,10 @@ void Material::setEmission(Color emission)
     this->emission[3] = emission.getAlpha() / 255.0;
 }
 
+void Material::setShininess(float shininess) { this->shininess = shininess; }
+
 float *Material::getSpecular() { return specular; }
 
 float *Material::getEmission() { return emission; }
+
+float Material::getShininess() { return shininess; }
