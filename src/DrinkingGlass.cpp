@@ -2,12 +2,12 @@
 
 DrinkingGlass::DrinkingGlass(float topRadius, float baseRadius, float height, Color color,
                              Material material)
+    : Object(Transform(), color, material)
 {
     this->topRadius = topRadius;
     this->baseRadius = baseRadius;
     this->height = height;
-    this->color = color;
-    this->material = material;
+
     quad = gluNewQuadric();
 }
 

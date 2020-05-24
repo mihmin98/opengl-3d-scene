@@ -1,21 +1,19 @@
 #include "Table.hpp"
 
 Table::Table(Vector3 topDimensions, Vector3 legDimensions, Color color, Material material)
+    : Object(Transform(), color, material)
 {
     this->topDimensions = topDimensions;
     this->legDimensions = legDimensions;
-    this->color = color;
-    this->material = material;
     generateParallelepipeds();
 }
 
 Table::Table(float topLength, float topWidth, float topHeight, float legLength, float legWidth,
              float legHeight, Color color, Material material)
+    : Object(Transform(), color, material)
 {
     this->topDimensions = Vector3(topLength, topHeight, topWidth);
     this->legDimensions = Vector3(legLength, legHeight, legWidth);
-    this->color = color;
-    this->material = material;
     generateParallelepipeds();
 }
 

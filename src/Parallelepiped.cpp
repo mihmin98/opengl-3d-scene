@@ -1,17 +1,16 @@
 #include "Parallelepiped.hpp"
 
 Parallelepiped::Parallelepiped(Vector3 dimensions, Color color, Material material)
+    : Object(Transform(), color, material)
 {
     this->dimensions = dimensions;
-    this->color = color;
-    this->material = material;
 }
 
-Parallelepiped::Parallelepiped(float length, float width, float height, Color color, Material material)
+Parallelepiped::Parallelepiped(float length, float width, float height, Color color,
+                               Material material)
+    : Object(Transform(), color, material)
 {
     dimensions = Vector3(length, height, width);
-    this->color = color;
-    this->material = material;
 }
 
 void Parallelepiped::drawObject()
