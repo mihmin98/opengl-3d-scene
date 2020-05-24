@@ -1,11 +1,12 @@
 #include "Barrel.hpp"
 
-Barrel::Barrel(float headRadius, float bellyRadius, float height, Color color)
+Barrel::Barrel(float headRadius, float bellyRadius, float height, Color color, Material material)
 {
     this->headRadius = headRadius;
     this->bellyRadius = bellyRadius;
     this->height = height;
     this->color = color;
+    this->material = material;
 
     quad = gluNewQuadric();
 }
