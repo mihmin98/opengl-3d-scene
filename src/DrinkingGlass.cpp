@@ -1,11 +1,13 @@
 #include "DrinkingGlass.hpp"
 
-DrinkingGlass::DrinkingGlass(float topRadius, float baseRadius, float height, Color color)
+DrinkingGlass::DrinkingGlass(float topRadius, float baseRadius, float height, Color color,
+                             Material material)
 {
     this->topRadius = topRadius;
     this->baseRadius = baseRadius;
     this->height = height;
     this->color = color;
+    this->material = material;
     quad = gluNewQuadric();
 }
 
@@ -13,7 +15,6 @@ DrinkingGlass::~DrinkingGlass() { gluDeleteQuadric(quad); }
 
 void DrinkingGlass::drawObject()
 {
-
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 

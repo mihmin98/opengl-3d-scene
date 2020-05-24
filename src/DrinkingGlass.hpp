@@ -10,7 +10,8 @@ class DrinkingGlass : public Object
     GLUquadric *quad;
 
   public:
-    DrinkingGlass(float topRadius, float baseRadius, float height, Color color = Color(198, 226, 227, 30));
+    DrinkingGlass(float topRadius, float baseRadius, float height,
+                  Color color = Color(198, 226, 227, 30), Material material = Material());
     ~DrinkingGlass();
     void drawObject();
     void update(float deltaTime);
