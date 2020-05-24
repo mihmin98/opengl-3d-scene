@@ -8,6 +8,7 @@
 #pragma once
 #include "Color.hpp"
 #include "GL/freeglut.h"
+#include "Material.hpp"
 #include "Transform.hpp"
 
 class Object
@@ -15,8 +16,9 @@ class Object
   public:
     Transform transform;
     Color color;
+    Material material;
 
-    Object(Transform transform = Transform(), Color color = Color());
+    Object(Transform transform = Transform(), Color color = Color(), Material material = Material());
 
     void draw();
     // Pure virtual function that says how the object is drawn (ex. shapes, etc)

@@ -1,9 +1,10 @@
 #include "Object.hpp"
 
-Object::Object(Transform transform, Color color)
+Object::Object(Transform transform, Color color, Material material)
 {
     this->transform = transform;
     this->color = color;
+    this->material = material;
 }
 
 void Object::draw()
@@ -36,6 +37,8 @@ void Object::draw()
     glEnable(GL_COLOR_MATERIAL);
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
     glColor4ubv(color.getColorArray());
+
+    this->material.applyMaterial();
 
     this->drawObject();
     glPopMatrix();
