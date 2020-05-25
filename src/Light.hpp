@@ -20,6 +20,10 @@ class Light
           Vector3 position = Vector3());
 
     void applyLight();
+
+    void setPosition(Vector3 position);
+    Vector3 getPosition();
+    float *getPositionv();
 };
 
 #endif

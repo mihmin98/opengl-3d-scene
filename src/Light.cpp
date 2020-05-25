@@ -89,3 +89,15 @@ void Light::applyLight()
     glEnable(GL_LIGHTING);
     glEnable(lightNumber);
 }
+
+void Light::setPosition(Vector3 position)
+{
+    this->position = position;
+    positionv[0] = position.x;
+    positionv[1] = position.y;
+    positionv[2] = position.z;
+}
+
+Vector3 Light::getPosition() { return position; }
+
+float *Light::getPositionv() { return positionv; }
