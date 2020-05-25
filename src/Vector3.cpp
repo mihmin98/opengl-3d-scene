@@ -35,7 +35,7 @@ Vector3 Vector3::CrossProduct(const Vector3 &a, const Vector3 &b)
     Vector3 result = Vector3();
     result.x = a.y * b.z - a.z * b.y;
     result.y = a.z * b.x - a.x * b.z;
-    result.z = a.x * b.y - a.x * b.x;
+    result.z = a.x * b.y - a.y * b.x;
     return result;
 }
 
@@ -44,11 +44,11 @@ void Vector3::PlaneEcuation(float *planeEcuation, const Vector3 &a, const Vector
 {
     Vector3 v1 = b - a, v2 = c - a;
     Vector3 cross = CrossProduct(v1, v2);
-    
+
     planeEcuation[0] = cross.x;
     planeEcuation[1] = cross.y;
     planeEcuation[2] = cross.z;
-    planeEcuation[3] = -(cross.x * v1.x + cross.y * v1.y + cross.z * v1.z);
+    planeEcuation[3] = -(cross.x * a.x + cross.y * a.y + cross.z * a.z);
 }
 
 Vector3 &Vector3::operator+=(const Vector3 &rhs)
