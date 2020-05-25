@@ -21,6 +21,7 @@ class Table : public Object
     void drawObject();
     void update(float deltaTime);
     float getFullHeight();
+    void getTopSurfaceEcuation(float *planeEcuation);
 };
 
 #endif
