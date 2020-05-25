@@ -7,7 +7,7 @@ Vector3::Vector3(float x, float y, float z)
     this->z = z;
 }
 
-void Vector3::Normalize()
+void Vector3::normalize()
 {
     float val = x * x + y * y + z * z;
     if (val != 1) {
@@ -37,6 +37,18 @@ Vector3 Vector3::CrossProduct(const Vector3 &a, const Vector3 &b)
     result.y = a.z * b.x - a.x * b.z;
     result.z = a.x * b.y - a.x * b.x;
     return result;
+}
+
+void Vector3::PlaneEcuation(float *planeEcuation, const Vector3 &a, const Vector3 &b,
+                            const Vector3 &c)
+{
+    Vector3 v1 = b - a, v2 = c - a;
+    Vector3 cross = CrossProduct(v1, v2);
+    
+    planeEcuation[0] = cross.x;
+    planeEcuation[1] = cross.y;
+    planeEcuation[2] = cross.z;
+    planeEcuation[3] = -(cross.x * v1.x + cross.y * v1.y + cross.z * v1.z);
 }
 
 Vector3 &Vector3::operator+=(const Vector3 &rhs)

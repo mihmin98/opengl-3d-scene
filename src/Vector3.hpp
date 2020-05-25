@@ -2,22 +2,24 @@
 #define _VECTOR3_HPP_
 
 #pragma once
-#include <string>
 #include <cmath>
+#include <string>
 
 class Vector3
 {
-public:
+  public:
     float x;
     float y;
     float z;
 
     Vector3(float x = 0, float y = 0, float z = 0);
-    void Normalize();
+    void normalize();
     std::string ToString();
 
     static float DotProduct(const Vector3 &a, const Vector3 &b);
     static Vector3 CrossProduct(const Vector3 &a, const Vector3 &b);
+    static void PlaneEcuation(float *planeEcuation, const Vector3 &a, const Vector3 &b,
+                              const Vector3 &c);
 
     Vector3 &operator+=(const Vector3 &rhs);
     Vector3 &operator-=(const Vector3 &rhs);
