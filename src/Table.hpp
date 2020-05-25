@@ -20,6 +20,8 @@ class Table : public Object
 
     void drawObject();
     void update(float deltaTime);
+    float getTopHeight();
+    float getLegHeight();
     float getFullHeight();
     void getTopSurfaceEcuation(float *planeEcuation);
 };

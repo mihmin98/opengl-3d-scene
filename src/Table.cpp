@@ -58,6 +58,10 @@ void Table::drawObject()
 
 void Table::update(float deltaTime) {}
 
+float Table::getTopHeight() { return topDimensions.y; }
+
+float Table::getLegHeight() { return legDimensions.y; }
+
 float Table::getFullHeight() { return topDimensions.y + legDimensions.y; }
 
 void Table::getTopSurfaceEcuation(float *planeEcuation)
