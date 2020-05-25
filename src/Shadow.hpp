@@ -23,6 +23,9 @@ class Shadow
 
     void setPosition(Vector3 position);
     void setRotation(Vector3 rotation);
+
+    Transform getTransform();
+    Vector3 getPosition();
 };
 
 #endif

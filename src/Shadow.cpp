@@ -67,4 +67,9 @@ void Shadow::generateShadowMatrix()
 float *Shadow::getShadowMatrix() { return (float *)shadowMatrix; }
 
 void Shadow::setPosition(Vector3 position) { transform.position = position; }
+
 void Shadow::setRotation(Vector3 rotation) { transform.rotation = rotation; }
+
+Transform Shadow::getTransform() { return transform; }
+
+Vector3 Shadow::getPosition() { return transform.position; }
