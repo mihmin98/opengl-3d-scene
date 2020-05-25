@@ -7,10 +7,20 @@ Vector3::Vector3(float x, float y, float z)
     this->z = z;
 }
 
+void Vector3::Normalize()
+{
+    float val = x * x + y * y + z * z;
+    if (val != 1) {
+        float length = sqrt(val);
+        x /= length;
+        y /= length;
+        z /= length;
+    }
+}
+
 std::string Vector3::ToString()
 {
-    std::string s = "(" + std::to_string(this->x) + ", " +
-                    std::to_string(this->y) + ", " +
+    std::string s = "(" + std::to_string(this->x) + ", " + std::to_string(this->y) + ", " +
                     std::to_string(this->z) + ")";
     return s;
 }
