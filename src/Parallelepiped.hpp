@@ -11,9 +11,12 @@ class Parallelepiped : public Object
     Vector3 dimensions;
 
   public:
+    enum Face { BOTTOM, TOP, FRONT, BACK, LEFT, RIGHT };
+
     Parallelepiped(Vector3 dimensions, Color color = Color(), Material material = Material());
     Parallelepiped(float length = 1, float width = 1, float height = 1, Color color = Color(),
                    Material material = Material());
+    void getPlaneEcuation(Face face, float *planeEcuation);
     void drawObject();
     void update(float deltaTime);
 

@@ -14,6 +14,45 @@ Parallelepiped::Parallelepiped(float length, float width, float height, Color co
     dimensions = Vector3(length, height, width);
 }
 
+void Parallelepiped::getPlaneEcuation(Face face, float *planeEcuation)
+{
+    Vector3 p1, p2, p3;
+    switch (face) {
+    case BOTTOM:
+        p1 = Vector3(0, 0, 0);
+        p2 = Vector3(dimensions.x, 0, 0);
+        p3 = Vector3(dimensions.x, 0, dimensions.z);
+        break;
+    case TOP:
+        p1 = Vector3(0, dimensions.y, 0);
+        p2 = Vector3(dimensions.x, dimensions.y, 0);
+        p3 = Vector3(dimensions.x, dimensions.y, dimensions.z);
+        break;
+    case FRONT:
+        p1 = Vector3(0, 0, 0);
+        p2 = Vector3(dimensions.x, 0, 0);
+        p3 = Vector3(dimensions.x, dimensions.y, 0);
+        break;
+    case BACK:
+        p1 = Vector3(0, 0, dimensions.z);
+        p2 = Vector3(dimensions.x, 0, dimensions.z);
+        p3 = Vector3(dimensions.x, dimensions.y, dimensions.z);
+        break;
+    case LEFT:
+        p1 = Vector3(0, 0, 0);
+        p2 = Vector3(0, dimensions.y, 0);
+        p3 = Vector3(0, dimensions.y, dimensions.z);
+        break;
+    case RIGHT:
+        p1 = Vector3(dimensions.x, 0, 0);
+        p2 = Vector3(dimensions.x, dimensions.y, 0);
+        p3 = Vector3(dimensions.x, dimensions.y, dimensions.z);
+        break;
+    }
+
+    Vector3::PlaneEcuation(planeEcuation, p1, p2, p3);
+}
+
 void Parallelepiped::drawObject()
 {
     // Origin is the bottom left corner
