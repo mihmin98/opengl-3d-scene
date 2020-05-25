@@ -7,7 +7,7 @@ Object::Object(Transform transform, Color color, Material material)
     this->material = material;
 }
 
-void Object::draw()
+void Object::draw(bool skipColor)
 {
     glPushMatrix();
     // Translate object to its current position
@@ -36,7 +36,9 @@ void Object::draw()
 
     glEnable(GL_COLOR_MATERIAL);
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-    glColor4ubv(color.getColorArray());
+    
+    if (!skipColor)
+        glColor4ubv(color.getColorArray());
 
     this->material.applyMaterial();
 

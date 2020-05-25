@@ -20,7 +20,7 @@ class Object
 
     Object(Transform transform = Transform(), Color color = Color(), Material material = Material());
 
-    void draw();
+    void draw(bool skipColor = false);
     // Pure virtual function that says how the object is drawn (ex. shapes, etc)
     virtual void drawObject() = 0;
     virtual void update(float deltaTime) = 0;
