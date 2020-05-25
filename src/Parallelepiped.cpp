@@ -1,4 +1,5 @@
 #include "Parallelepiped.hpp"
+#include <iostream>
 
 Parallelepiped::Parallelepiped(Vector3 dimensions, Color color, Material material)
     : Object(Transform(), color, material)
@@ -20,39 +21,63 @@ void Parallelepiped::drawObject()
     glBegin(GL_QUADS);
 
     // Bottom Face
+    glNormal3f(0, -1, 0);
     glVertex3f(0, 0, 0);
+    glNormal3f(0, -1, 0);
     glVertex3f(dimensions.x, 0, 0);
+    glNormal3f(0, -1, 0);
     glVertex3f(dimensions.x, 0, dimensions.z);
+    glNormal3f(0, -1, 0);
     glVertex3f(0, 0, dimensions.z);
 
     // Top Face
+    glNormal3f(0, 1, 0);
     glVertex3f(0, dimensions.y, 0);
+    glNormal3f(0, 1, 0);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    glNormal3f(0, 1, 0);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glNormal3f(0, 1, 0);
     glVertex3f(0, dimensions.y, dimensions.z);
 
     // Front Face
+    glNormal3f(0, 0, -1);
     glVertex3f(0, 0, 0);
+    glNormal3f(0, 0, -1);
     glVertex3f(dimensions.x, 0, 0);
+    glNormal3f(0, 0, -1);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    glNormal3f(0, 0, -1);
     glVertex3f(0, dimensions.y, 0);
 
     // Back Face
+    glNormal3f(0, 0, 1);
     glVertex3f(0, 0, dimensions.z);
+    glNormal3f(0, 0, 1);
     glVertex3f(dimensions.x, 0, dimensions.z);
+    glNormal3f(0, 0, 1);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glNormal3f(0, 0, 1);
     glVertex3f(0, dimensions.y, dimensions.z);
 
     // Left Face
+    glNormal3f(-1, 0, 0);
     glVertex3f(0, 0, 0);
+    glNormal3f(-1, 0, 0);
     glVertex3f(0, dimensions.y, 0);
+    glNormal3f(-1, 0, 0);
     glVertex3f(0, dimensions.y, dimensions.z);
+    glNormal3f(-1, 0, 0);
     glVertex3f(0, 0, dimensions.z);
 
     // Right Face
+    glNormal3f(1, 0, 0);
     glVertex3f(dimensions.x, 0, 0);
+    glNormal3f(1, 0, 0);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    glNormal3f(1, 0, 0);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    glNormal3f(1, 0, 0);
     glVertex3f(dimensions.x, 0, dimensions.z);
 
     glEnd();
