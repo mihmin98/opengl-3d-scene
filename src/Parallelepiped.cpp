@@ -5,6 +5,7 @@ Parallelepiped::Parallelepiped(Vector3 dimensions, Color color, Material materia
     : Object(Transform(), color, material)
 {
     this->dimensions = dimensions;
+    textureName = 0;
 }
 
 Parallelepiped::Parallelepiped(float length, float width, float height, Color color,
@@ -12,6 +13,7 @@ Parallelepiped::Parallelepiped(float length, float width, float height, Color co
     : Object(Transform(), color, material)
 {
     dimensions = Vector3(length, height, width);
+    textureName = 0;
 }
 
 void Parallelepiped::getPlaneEcuation(Face face, float *planeEcuation)
@@ -61,53 +63,102 @@ void Parallelepiped::getPlaneEcuation(Face face, float *planeEcuation)
 
 void Parallelepiped::drawObject()
 {
+    if (drawTexture && textureName != 0) {
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, textureName);
+    }
+
     // Origin is the bottom left corner
     // Vertices are in CCW order
     glBegin(GL_QUADS);
 
     // Bottom Face
     glNormal3f(0, -1, 0);
+    glTexCoord2f(0, 0);
     glVertex3f(0, 0, 0);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(dimensions.x, 0, 0);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(dimensions.x, 0, dimensions.z);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(0, 0, dimensions.z);
 
     // Top Face
     glNormal3f(0, 1, 0);
+    glTexCoord2f(0, 0);
     glVertex3f(0, dimensions.y, 0);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(0, dimensions.y, dimensions.z);
 
     // Front Face
     glNormal3f(0, 0, -1);
+    glTexCoord2f(0, 0);
     glVertex3f(0, 0, 0);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(dimensions.x, 0, 0);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(0, dimensions.y, 0);
 
     // Back Face
     glNormal3f(0, 0, 1);
+    glTexCoord2f(0, 0);
     glVertex3f(0, 0, dimensions.z);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(dimensions.x, 0, dimensions.z);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(0, dimensions.y, dimensions.z);
 
     // Left Face
     glNormal3f(-1, 0, 0);
+    glTexCoord2f(0, 0);
     glVertex3f(0, 0, 0);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(0, dimensions.y, 0);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(0, dimensions.y, dimensions.z);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(0, 0, dimensions.z);
 
     // Right Face
     glNormal3f(1, 0, 0);
+    glTexCoord2f(0, 0);
     glVertex3f(dimensions.x, 0, 0);
+    
+    glTexCoord2f(0, 1);
     glVertex3f(dimensions.x, dimensions.y, 0);
+    
+    glTexCoord2f(1, 1);
     glVertex3f(dimensions.x, dimensions.y, dimensions.z);
+    
+    glTexCoord2f(1, 0);
     glVertex3f(dimensions.x, 0, dimensions.z);
 
     glEnd();
+
+    glDisable(GL_TEXTURE_2D);
 }
 
 void Parallelepiped::update(float deltaTime) {}
@@ -118,5 +169,7 @@ void Parallelepiped::setDimensions(float length, float height, float width)
 {
     dimensions = Vector3(length, height, width);
 }
+
+void Parallelepiped::setTextureName(unsigned int textureName) { this->textureName = textureName; }
 
 Vector3 Parallelepiped::getDimensions() { return dimensions; }
