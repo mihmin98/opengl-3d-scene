@@ -58,6 +58,20 @@ void Table::drawObject()
 
 void Table::update(float deltaTime) {}
 
+void Table::setDrawTexture(bool drawTexture)
+{
+    drawTexture = drawTexture;
+    top.setDrawTexture(drawTexture);
+    leg.setDrawTexture(drawTexture);
+}
+
+void Table::setTextureName(unsigned int textureName)
+{
+    this->textureName = textureName;
+    top.setTextureName(textureName);
+    leg.setTextureName(textureName);
+}
+
 float Table::getTopHeight() { return topDimensions.y; }
 
 float Table::getLegHeight() { return legDimensions.y; }

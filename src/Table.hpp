@@ -10,6 +10,7 @@ class Table : public Object
 {
     Vector3 topDimensions, legDimensions;
     Parallelepiped top, leg; // legs are in order: bot-left, bot-right, top-right, top-left
+    unsigned int textureName;
     void generateParallelepipeds();
 
   public:
@@ -20,6 +21,8 @@ class Table : public Object
 
     void drawObject();
     void update(float deltaTime);
+    void setDrawTexture(bool drawTexture);
+    void setTextureName(unsigned int textureName);
     float getTopHeight();
     float getLegHeight();
     float getFullHeight();
