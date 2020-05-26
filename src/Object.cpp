@@ -5,6 +5,7 @@ Object::Object(Transform transform, Color color, Material material)
     this->transform = transform;
     this->color = color;
     this->material = material;
+    drawTexture = true;
 }
 
 void Object::draw(bool skipColor)
@@ -65,3 +66,5 @@ void Object::drawShadows()
 }
 
 void Object::addShadow(Shadow shadow) { shadowList.push_back(shadow); }
+
+void Object::setDrawTexture(bool drawTexture) { this->drawTexture = drawTexture; }

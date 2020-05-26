@@ -20,6 +20,7 @@ class Object
     Color color;
     Material material;
     std::vector<Shadow> shadowList;
+    bool drawTexture;
 
     Object(Transform transform = Transform(), Color color = Color(),
            Material material = Material());
@@ -31,6 +32,7 @@ class Object
     virtual void update(float deltaTime) = 0;
 
     void addShadow(Shadow shadow);
+    void setDrawTexture(bool drawTexture);
 };
 
 #endif
