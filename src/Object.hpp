@@ -11,7 +11,6 @@
 #include "Material.hpp"
 #include "Shadow.hpp"
 #include "Transform.hpp"
-#include "Texture.hpp"
 #include <vector>
 
 class Object
@@ -20,7 +19,6 @@ class Object
     Transform transform;
     Color color;
     Material material;
-    Texture *texture;
     std::vector<Shadow> shadowList;
 
     Object(Transform transform = Transform(), Color color = Color(),
@@ -33,7 +31,6 @@ class Object
     virtual void update(float deltaTime) = 0;
 
     void addShadow(Shadow shadow);
-    void setTexture(Texture *texture);
 };
 
 #endif
