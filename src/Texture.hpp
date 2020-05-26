@@ -14,6 +14,7 @@ class Texture
 
   public:
     Texture(std::string filePath);
+    ~Texture();
     void loadTexture();
     unsigned char *getData();
     int getWidth();

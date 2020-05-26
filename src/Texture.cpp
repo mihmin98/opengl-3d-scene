@@ -6,6 +6,8 @@ Texture::Texture(std::string filePath)
     data = nullptr;
 }
 
+Texture::~Texture() { SOIL_free_image_data(data); }
+
 void Texture::loadTexture()
 {
     data = SOIL_load_image(filePath.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
