@@ -31,6 +31,8 @@ void Texture::loadTexture()
 
 unsigned char *Texture::getData() { return data; }
 
+unsigned int Texture::getTextureName() { return textureName; }
+
 int Texture::getWidth() { return width; }
 
 int Texture::getHeight() { return height; }
