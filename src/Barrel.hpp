@@ -3,12 +3,14 @@
 
 #pragma once
 #include "Object.hpp"
+#include "Texture.hpp"
 
 class Barrel : public Object
 {
     float headRadius, bellyRadius, height;
     int slices = 30, stacks = 30;
     GLUquadric *quad;
+    unsigned int barrelTextureName, woodTextureName;
 
   public:
     Barrel(float headRadius, float bellyRadius, float height,
@@ -21,6 +23,8 @@ class Barrel : public Object
     void setHeadRadius(float headRadius);
     void setBellyRadius(float bellyRadius);
     void setHeight(float height);
+    void setBarrelTextureName(unsigned int barrelTextureName);
+    void setWoodTextureName(unsigned int woodTextureName);
     float getHeadRadius();
     float getBellyRadius();
     float getHeight();
