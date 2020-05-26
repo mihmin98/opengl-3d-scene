@@ -32,7 +32,7 @@ class Object
     virtual void update(float deltaTime) = 0;
 
     void addShadow(Shadow shadow);
-    void setDrawTexture(bool drawTexture);
+    virtual void setDrawTexture(bool drawTexture);
 };
 
 #endif
