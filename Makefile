@@ -1,8 +1,8 @@
 CC=g++
-CFLAGS=-Wall
-LIBS=-lglut -lGL -lGLU
+CFLAGS=-Wall -g
+LIBS=-lglut -lGL -lGLU -lSOIL
 
-APPNAME = 3d_scene.out
+APPNAME := 3d_scene.out
 SRC_DIR := src
 OBJ_DIR := obj
 
@@ -24,4 +24,4 @@ $(OBJ_DIR):
 clean:
 	$(RM) -r $(OBJ_DIR) $(APPNAME)
 
-#.PHONY: all clean
+.PHONY: all clean
